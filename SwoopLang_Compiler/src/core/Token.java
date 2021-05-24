@@ -48,6 +48,10 @@ public class Token {
 		return m_Type;
 	}
 
+	public boolean is(TokenType type) {
+		return m_Type.equals(type);
+	}
+
 	@Override
 	public String toString() {
 		if (m_Type.equals(TokenType.ID))
@@ -79,13 +83,14 @@ public class Token {
 		FOR, // := for
 		RETURN, // := return
 		CLASS, // := class
-		STRUCT, // := struct
 		DEFINE, // := define
 		VOID, // := void
 		PUBLIC, // := public
 		PRIVATE, // := private
 		PROTECTED, // := protected
-		EXTERN, // := extern
+		STATIC, // := static
+		USE, // := use
+		FINAL, // := final
 		INT, // := int
 		SHORT, // := short
 		LONG, // := long
@@ -95,12 +100,10 @@ public class Token {
 		FLOAT, // := float
 		DOUBLE, // := double
 		BOOL, // := bool
-		TRUE, // := true | (digit - 0)
+		TRUE, // := true | (digit* - {0})
 		FALSE, // := false | 0
 		STRING, // := string
 		ENUM, // := enum
-		EXTENDS, // := extends
-		IMPLEMENTS, // := implements
 		INTERFACE, // := interface
 		NEW, // := new
 		LEQ, // := <=
@@ -111,13 +114,18 @@ public class Token {
 		EQUAL, // := =
 		PLUS, // := +
 		DPLUS, // := ++
+		PLUSEQ, // := +=
 		DASH, // := -
 		DDASH, // := --
+		DASHEQ, // := -=
 		STAR, // := *
+		STAREQ, // := *=
 		FSLASH, // := /
+		FSLASHEQ, // := /=
 		BSLASH, // := \
 		PIPE, // := |
 		DPIPE, // := ||
+		PIPEEQ, // := |=
 		LPAREN, // := (
 		RPAREN, // := )
 		LBRACKET, // := [
@@ -137,13 +145,16 @@ public class Token {
 		EXMARK, // := !
 		AMPERSAND, // := &
 		DAMPERSAND, // := &&
+		AMPERSANDEQ, // := &=
 		AT, // := @
 		HASH, // := #
 		DOLLAR, // := $
 		PERCENT, // := %
-		UPCARET, // := ^
-		TILDE, // := ~
-
+		PERCENTEQ, // := %=
+		CARET, // := ^
+		DCARET, // := ^^
+		CARETEQ, // := ^=
+		TILDE // := ~
 	}
 
 }

@@ -57,6 +57,10 @@ public class Scanner {
 				moveIndex(2);
 				return new Token(TokenType.DPLUS);
 			}
+			if (safe(1) && getChar(1) == '=') {
+				moveIndex(2);
+				return new Token(TokenType.PLUSEQ);
+			}
 			moveIndex(1);
 			return new Token(TokenType.PLUS);
 		case '-':
@@ -68,12 +72,24 @@ public class Scanner {
 				moveIndex(2);
 				return new Token(TokenType.ARROW);
 			}
+			if (safe(1) && getChar(1) == '=') {
+				moveIndex(2);
+				return new Token(TokenType.DASHEQ);
+			}
 			moveIndex(1);
 			return new Token(TokenType.DASH);
 		case '*':
+			if (safe(1) && getChar(1) == '=') {
+				moveIndex(2);
+				return new Token(TokenType.STAREQ);
+			}
 			moveIndex(1);
 			return new Token(TokenType.STAR);
 		case '/':
+			if (safe(1) && getChar(1) == '=') {
+				moveIndex(2);
+				return new Token(TokenType.FSLASHEQ);
+			}
 			moveIndex(1);
 			return new Token(TokenType.FSLASH);
 		case '\\':
@@ -83,6 +99,10 @@ public class Scanner {
 			if (safe(1) && getChar(1) == '|') {
 				moveIndex(2);
 				return new Token(TokenType.DPIPE);
+			}
+			if (safe(1) && getChar(1) == '=') {
+				moveIndex(2);
+				return new Token(TokenType.PIPEEQ);
 			}
 			moveIndex(1);
 			return new Token(TokenType.PIPE);
@@ -156,6 +176,10 @@ public class Scanner {
 				moveIndex(2);
 				return new Token(TokenType.DAMPERSAND);
 			}
+			if (safe(1) && getChar(1) == '=') {
+				moveIndex(2);
+				return new Token(TokenType.AMPERSANDEQ);
+			}
 			moveIndex(1);
 			return new Token(TokenType.AMPERSAND);
 		case '@':
@@ -168,11 +192,23 @@ public class Scanner {
 			moveIndex(1);
 			return new Token(TokenType.DOLLAR);
 		case '%':
+			if (safe(1) && getChar(1) == '=') {
+				moveIndex(2);
+				return new Token(TokenType.PERCENTEQ);
+			}
 			moveIndex(1);
 			return new Token(TokenType.PERCENT);
 		case '^':
+			if (safe(1) && getChar(1) == '^') {
+				moveIndex(2);
+				return new Token(TokenType.DCARET);
+			}
+			if (safe(1) && getChar(1) == '=') {
+				moveIndex(2);
+				return new Token(TokenType.CARETEQ);
+			}
 			moveIndex(1);
-			return new Token(TokenType.UPCARET);
+			return new Token(TokenType.CARET);
 		case '~':
 			moveIndex(1);
 			return new Token(TokenType.TILDE);
