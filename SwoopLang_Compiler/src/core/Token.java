@@ -4,9 +4,10 @@ public class Token {
 
 	public static String[] s_Keywords = new String[] { "if", "else", "while",
 			"for", "return", "class", "struct", "define", "void", "public",
-			"protected", "private", "extern", "int", "short", "long", "byte",
-			"bit", "char", "float", "double", "bool", "string", "enum",
-			"extends", "implements", "interface", "true", "false", "new" };
+			"protected", "private", "static", "final", "use", "int", "short",
+			"long", "byte", "bit", "char", "float", "double", "bool", "str",
+			"enum", "extends", "implements", "interface", "true", "false",
+			"new" };
 
 	private TokenType m_Type;
 	private int m_IntCon = 0;
@@ -102,7 +103,7 @@ public class Token {
 		BOOL, // := bool
 		TRUE, // := true | (digit* - {0})
 		FALSE, // := false | 0
-		STRING, // := string
+		STR, // := string
 		ENUM, // := enum
 		INTERFACE, // := interface
 		NEW, // := new

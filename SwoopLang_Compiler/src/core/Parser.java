@@ -57,10 +57,11 @@ public class Parser {
 	private void PARSE_extern_def() {
 		switch (m_Token.type()) {
 		case USE:
-			// EXTERN ID dot_id_chain
+			// EXTERN ID dot_id_chain SEMI
 			assertToken(TokenType.USE);
 			assertToken(TokenType.ID);
 			PARSE_dot_id_chain();
+			assertToken(TokenType.SEMI);
 			break;
 
 		default:
@@ -79,22 +80,24 @@ public class Parser {
 			PARSE_dot_id_chain();
 			break;
 
-		case LPAREN:
-		case USE:
-		case PRIVATE:
-		case PROTECTED:
-		case PUBLIC:
-		case CLASS:
-		case INTERFACE:
-		case ENUM:
-		case EOF:
-			// epsilon (FOLLOW set)
-			break;
+//		case LPAREN:
+//		case USE:
+//		case PRIVATE:
+//		case PROTECTED:
+//		case PUBLIC:
+//		case CLASS:
+//		case INTERFACE:
+//		case ENUM:
+//		case EOF:
+//			// epsilon (FOLLOW set)
+//			break;
 
 		default:
-			throw new RuntimeException("The current token (" + m_Token
-					+ ") is not in dot_id_chain's FIRST set. LINE --- "
-					+ m_Scanner.s_LineNumber);
+			// epsilon in default
+			break;
+//			throw new RuntimeException("The current token (" + m_Token
+//					+ ") is not in dot_id_chain's FIRST set. LINE --- "
+//					+ m_Scanner.s_LineNumber);
 		}
 	}
 
@@ -115,31 +118,33 @@ public class Parser {
 			assertToken(TokenType.PUBLIC);
 			break;
 
-		case CLASS:
-		case INTERFACE:
-		case ENUM:
-		case ID:
-		case STATIC:
-		case FINAL:
-		case VOID:
-		case INT:
-		case CHAR:
-		case STRING:
-		case SHORT:
-		case LONG:
-		case BYTE:
-		case BIT:
-		case FLOAT:
-		case DOUBLE:
-		case BOOL:
-		case RBRACE:
-			// epsilon (FOLLOW set)
-			break;
+//		case CLASS:
+//		case INTERFACE:
+//		case ENUM:
+//		case ID:
+//		case STATIC:
+//		case FINAL:
+//		case VOID:
+//		case INT:
+//		case CHAR:
+//		case STRING:
+//		case SHORT:
+//		case LONG:
+//		case BYTE:
+//		case BIT:
+//		case FLOAT:
+//		case DOUBLE:
+//		case BOOL:
+//		case RBRACE:
+//			// epsilon (FOLLOW set)
+//			break;
 
 		default:
-			throw new RuntimeException("The current token (" + m_Token
-					+ ") is not in access_modifier's FIRST or FOLLOW sets. LINE --- "
-					+ m_Scanner.s_LineNumber);
+			// epsilon in default
+			break;
+//			throw new RuntimeException("The current token (" + m_Token
+//					+ ") is not in access_modifier's FIRST or FOLLOW sets. LINE --- "
+//					+ m_Scanner.s_LineNumber);
 		}
 	}
 
@@ -196,14 +201,16 @@ public class Parser {
 			PARSE_id_chain();
 			break;
 
-		case LBRACE:
-			// epsilon (FOLLOW set)
-			break;
+//		case LBRACE:
+//			// epsilon (FOLLOW set)
+//			break;
 
 		default:
-			throw new RuntimeException("The current token (" + m_Token
-					+ ") is not in ext_impl_ep's FIRST or FOLLOW sets. LINE --- "
-					+ m_Scanner.s_LineNumber);
+			// epsilon in default
+			break;
+//			throw new RuntimeException("The current token (" + m_Token
+//					+ ") is not in ext_impl_ep's FIRST or FOLLOW sets. LINE --- "
+//					+ m_Scanner.s_LineNumber);
 		}
 	}
 
@@ -216,15 +223,17 @@ public class Parser {
 			PARSE_id_chain();
 			break;
 
-		case LBRACE:
-		case RBRACE:
-			// epsilon (FOLLOW set)
-			break;
+//		case LBRACE:
+//		case RBRACE:
+//			// epsilon (FOLLOW set)
+//			break;
 
 		default:
-			throw new RuntimeException("The current token (" + m_Token
-					+ ") is not in id_chain's FIRST or FOLLOW sets. LINE --- "
-					+ m_Scanner.s_LineNumber);
+			// epsilon in default
+			break;
+//			throw new RuntimeException("The current token (" + m_Token
+//					+ ") is not in id_chain's FIRST or FOLLOW sets. LINE --- "
+//					+ m_Scanner.s_LineNumber);
 		}
 	}
 
@@ -252,7 +261,7 @@ public class Parser {
 		case VOID:
 		case INT:
 		case CHAR:
-		case STRING:
+		case STR:
 		case SHORT:
 		case LONG:
 		case BYTE:
@@ -284,15 +293,17 @@ public class Parser {
 			PARSE_access_modifier();
 			PARSE_class_contents();
 			break;
-
-		case RBRACE:
-			// epsilon (FOLLOW set)
-			break;
+//
+//		case RBRACE:
+//			// epsilon (FOLLOW set)
+//			break;
 
 		default:
-			throw new RuntimeException("The current token (" + m_Token
-					+ ") is not in class_contents's FIRST or FOLLOW sets. LINE --- "
-					+ m_Scanner.s_LineNumber);
+			// epsilon in default
+			break;
+//			throw new RuntimeException("The current token (" + m_Token
+//					+ ") is not in class_contents's FIRST or FOLLOW sets. LINE --- "
+//					+ m_Scanner.s_LineNumber);
 		}
 	}
 
@@ -325,25 +336,27 @@ public class Parser {
 			assertToken(TokenType.FINAL);
 			break;
 
-		case ID:
-		case VOID:
-		case INT:
-		case CHAR:
-		case STRING:
-		case SHORT:
-		case LONG:
-		case BYTE:
-		case BIT:
-		case FLOAT:
-		case DOUBLE:
-		case BOOL:
-			// epsilon (FOLLOW set)
-			break;
+//		case ID:
+//		case VOID:
+//		case INT:
+//		case CHAR:
+//		case STRING:
+//		case SHORT:
+//		case LONG:
+//		case BYTE:
+//		case BIT:
+//		case FLOAT:
+//		case DOUBLE:
+//		case BOOL:
+//			// epsilon (FOLLOW set)
+//			break;
 
 		default:
-			throw new RuntimeException("The current token (" + m_Token
-					+ ") is not in final_ep's FIRST or FOLLOW sets. LINE --- "
-					+ m_Scanner.s_LineNumber);
+			// epsilon in default
+			break;
+//			throw new RuntimeException("The current token (" + m_Token
+//					+ ") is not in final_ep's FIRST or FOLLOW sets. LINE --- "
+//					+ m_Scanner.s_LineNumber);
 		}
 	}
 
@@ -359,7 +372,7 @@ public class Parser {
 		case VOID:
 		case INT:
 		case CHAR:
-		case STRING:
+		case STR:
 		case SHORT:
 		case LONG:
 		case BYTE:
@@ -391,7 +404,7 @@ public class Parser {
 
 		case INT:
 		case CHAR:
-		case STRING:
+		case STR:
 		case SHORT:
 		case LONG:
 		case BYTE:
@@ -424,9 +437,9 @@ public class Parser {
 			assertToken(TokenType.CHAR);
 			break;
 
-		case STRING:
+		case STR:
 			// STRING
-			assertToken(TokenType.STRING);
+			assertToken(TokenType.STR);
 			break;
 
 		case SHORT:
@@ -522,16 +535,18 @@ public class Parser {
 			PARSE_expr();
 			break;
 
-		case COMMA:
-		case RPAREN:
-		case SEMI:
-			// epsilon (FOLLOW set)
-			break;
+//		case COMMA:
+//		case RPAREN:
+//		case SEMI:
+//			// epsilon (FOLLOW set)
+//			break;
 
 		default:
-			throw new RuntimeException("The current token (" + m_Token
-					+ ") is not in var_decl_ep's FIRST or FOLLOW sets. LINE --- "
-					+ m_Scanner.s_LineNumber);
+			// epsilon in default
+			break;
+//			throw new RuntimeException("The current token (" + m_Token
+//					+ ") is not in var_decl_ep's FIRST or FOLLOW sets. LINE --- "
+//					+ m_Scanner.s_LineNumber);
 		}
 	}
 
@@ -545,14 +560,16 @@ public class Parser {
 			PARSE_var_chain();
 			break;
 
-		case SEMI:
-			// epsilon (FOLLOW set)
-			break;
+//		case SEMI:
+//			// epsilon (FOLLOW set)
+//			break;
 
 		default:
-			throw new RuntimeException("The current token (" + m_Token
-					+ ") is not in var_chain's FIRST or FOLLOW sets. LINE --- "
-					+ m_Scanner.s_LineNumber);
+			// epsilon in default
+			break;
+//			throw new RuntimeException("The current token (" + m_Token
+//					+ ") is not in var_chain's FIRST or FOLLOW sets. LINE --- "
+//					+ m_Scanner.s_LineNumber);
 		}
 
 	}
@@ -578,7 +595,7 @@ public class Parser {
 		switch (m_Token.type()) {
 		case INT:
 		case CHAR:
-		case STRING:
+		case STR:
 		case SHORT:
 		case LONG:
 		case BYTE:
@@ -601,14 +618,16 @@ public class Parser {
 			PARSE_formals_chain();
 			break;
 
-		case RPAREN:
-			// epsilon (FOLLOW set)
-			break;
+//		case RPAREN:
+//			// epsilon (FOLLOW set)
+//			break;
 
 		default:
-			throw new RuntimeException("The current token (" + m_Token
-					+ ") is not in formals's FIRST or FOLLOW sets. LINE --- "
-					+ m_Scanner.s_LineNumber);
+			// epsilon in default
+			break;
+//			throw new RuntimeException("The current token (" + m_Token
+//					+ ") is not in formals's FIRST or FOLLOW sets. LINE --- "
+//					+ m_Scanner.s_LineNumber);
 		}
 	}
 
@@ -620,14 +639,16 @@ public class Parser {
 			PARSE_formals_chain_1();
 			break;
 
-		case RPAREN:
-			// epsilon (FOLLOW set)
-			break;
+//		case RPAREN:
+//			// epsilon (FOLLOW set)
+//			break;
 
 		default:
-			throw new RuntimeException("The current token (" + m_Token
-					+ ") is not in formals_chain's FIRST or FOLLOW sets. LINE --- "
-					+ m_Scanner.s_LineNumber);
+			// epsilon in default
+			break;
+//			throw new RuntimeException("The current token (" + m_Token
+//					+ ") is not in formals_chain's FIRST or FOLLOW sets. LINE --- "
+//					+ m_Scanner.s_LineNumber);
 		}
 	}
 
@@ -635,7 +656,7 @@ public class Parser {
 		switch (m_Token.type()) {
 		case INT:
 		case CHAR:
-		case STRING:
+		case STR:
 		case SHORT:
 		case LONG:
 		case BYTE:
@@ -705,7 +726,7 @@ public class Parser {
 
 		case INT:
 		case CHAR:
-		case STRING:
+		case STR:
 		case SHORT:
 		case LONG:
 		case BYTE:
@@ -749,7 +770,7 @@ public class Parser {
 		case DPLUS:
 		case INT:
 		case CHAR:
-		case STRING:
+		case STR:
 		case SHORT:
 		case LONG:
 		case BYTE:
@@ -764,14 +785,16 @@ public class Parser {
 			PARSE_stmts();
 			break;
 
-		case RBRACE:
-			// epsilon
-			break;
+//		case RBRACE:
+//			// epsilon
+//			break;
 
 		default:
-			throw new RuntimeException("The current token (" + m_Token
-					+ ") is not in stmts's FIRST or FOLLOW sets. LINE --- "
-					+ m_Scanner.s_LineNumber);
+			// epsilon in default
+			break;
+//			throw new RuntimeException("The current token (" + m_Token
+//					+ ") is not in stmts's FIRST or FOLLOW sets. LINE --- "
+//					+ m_Scanner.s_LineNumber);
 		}
 	}
 
@@ -850,15 +873,17 @@ public class Parser {
 			PARSE_expr();
 			PARSE_expr_chain();
 			break;
-
-		case RPAREN:
-			// epsilon
-			break;
+//
+//		case RPAREN:
+//			// epsilon
+//			break;
 
 		default:
-			throw new RuntimeException("The current token (" + m_Token
-					+ ") is not in exprs's FIRST or FOLLOW sets. LINE --- "
-					+ m_Scanner.s_LineNumber);
+			// epsilon in default
+			break;
+// throw new RuntimeException("The current token (" + m_Token
+//					+ ") is not in exprs's FIRST or FOLLOW sets. LINE --- "
+//					+ m_Scanner.s_LineNumber);
 		}
 	}
 
@@ -871,14 +896,16 @@ public class Parser {
 			PARSE_expr_chain();
 			break;
 
-		case RPAREN:
-			// epsilon
-			break;
+//		case RPAREN:
+//			// epsilon
+//			break;
 
 		default:
-			throw new RuntimeException("The current token (" + m_Token
-					+ ") is not in exprs's FIRST or FOLLOW sets. LINE --- "
-					+ m_Scanner.s_LineNumber);
+			// epsilon in default
+			break;
+//			throw new RuntimeException("The current token (" + m_Token
+//					+ ") is not in exprs's FIRST or FOLLOW sets. LINE --- "
+//					+ m_Scanner.s_LineNumber);
 		}
 	}
 
@@ -891,35 +918,37 @@ public class Parser {
 			PARSE_method_call();
 			break;
 
-		case PLUS:
-		case DASH:
-		case STAR:
-		case FSLASH:
-		case AMPERSAND:
-		case PIPE:
-		case CARET:
-		case PERCENT:
-		case LANGLE:
-		case RANGLE:
-		case LEQ:
-		case GEQ:
-		case DEQ:
-		case NEQ:
-		case DAMPERSAND:
-		case DPIPE:
-		case DCARET:
-		case SEMI:
-		case DPERIOD:
-		case RBRACKET:
-		case COMMA:
-		case RPAREN:
-			// epsilon
-			break;
+//		case PLUS:
+//		case DASH:
+//		case STAR:
+//		case FSLASH:
+//		case AMPERSAND:
+//		case PIPE:
+//		case CARET:
+//		case PERCENT:
+//		case LANGLE:
+//		case RANGLE:
+//		case LEQ:
+//		case GEQ:
+//		case DEQ:
+//		case NEQ:
+//		case DAMPERSAND:
+//		case DPIPE:
+//		case DCARET:
+//		case SEMI:
+//		case DPERIOD:
+//		case RBRACKET:
+//		case COMMA:
+//		case RPAREN:
+//			// epsilon
+//			break;
 
 		default:
-			throw new RuntimeException("The current token (" + m_Token
-					+ ") is not in dot_method_call_ep's FIRST or FOLLOW sets. LINE --- "
-					+ m_Scanner.s_LineNumber);
+			// epsilon in default
+			break;
+//			throw new RuntimeException("The current token (" + m_Token
+//					+ ") is not in dot_method_call_ep's FIRST or FOLLOW sets. LINE --- "
+//					+ m_Scanner.s_LineNumber);
 		}
 
 	}
@@ -1035,64 +1064,66 @@ public class Parser {
 			PARSE_stmt();
 			break;
 
-		case PRIVATE:
-		case PROTECTED:
-		case PUBLIC:
-		case CLASS:
-		case INTERFACE:
-		case ENUM:
-		case ID:
-		case STATIC:
-		case FINAL:
-		case VOID:
-		case INT:
-		case CHAR:
-		case STRING:
-		case SHORT:
-		case LONG:
-		case BYTE:
-		case BIT:
-		case FLOAT:
-		case DOUBLE:
-		case BOOL:
-		case PLUS:
-		case DASH:
-		case STAR:
-		case FSLASH:
-		case AMPERSAND:
-		case PIPE:
-		case CARET:
-		case PERCENT:
-		case LANGLE:
-		case RANGLE:
-		case LEQ:
-		case GEQ:
-		case DEQ:
-		case NEQ:
-		case DAMPERSAND:
-		case DPIPE:
-		case DCARET:
-		case SEMI:
-		case DPERIOD:
-		case RBRACKET:
-		case COMMA:
-		case RPAREN:
-		case RBRACE:
-		case IF:
-		case FOR:
-		case RETURN:
-		case DPLUS:
-		case DDASH:
-		case LBRACE:
-		case WHILE:
-		case AT:
-			// epsilon
-			break;
+//		case PRIVATE:
+//		case PROTECTED:
+//		case PUBLIC:
+//		case CLASS:
+//		case INTERFACE:
+//		case ENUM:
+//		case ID:
+//		case STATIC:
+//		case FINAL:
+//		case VOID:
+//		case INT:
+//		case CHAR:
+//		case STRING:
+//		case SHORT:
+//		case LONG:
+//		case BYTE:
+//		case BIT:
+//		case FLOAT:
+//		case DOUBLE:
+//		case BOOL:
+//		case PLUS:
+//		case DASH:
+//		case STAR:
+//		case FSLASH:
+//		case AMPERSAND:
+//		case PIPE:
+//		case CARET:
+//		case PERCENT:
+//		case LANGLE:
+//		case RANGLE:
+//		case LEQ:
+//		case GEQ:
+//		case DEQ:
+//		case NEQ:
+//		case DAMPERSAND:
+//		case DPIPE:
+//		case DCARET:
+//		case SEMI:
+//		case DPERIOD:
+//		case RBRACKET:
+//		case COMMA:
+//		case RPAREN:
+//		case RBRACE:
+//		case IF:
+//		case FOR:
+//		case RETURN:
+//		case DPLUS:
+//		case DDASH:
+//		case LBRACE:
+//		case WHILE:
+//		case AT:
+//			// epsilon
+//			break;
 
 		default:
-			throw new RuntimeException("The current token (" + m_Token
-					+ ") is not in else_stmt's FIRST or FOLLOW sets. LINE --- "
-					+ m_Scanner.s_LineNumber);
+			// epsilon in default
+			break;
+//			throw new RuntimeException("The current token (" + m_Token
+//					+ ") is not in else_stmt's FIRST or FOLLOW sets. LINE --- "
+//					+ m_Scanner.s_LineNumber);
 		}
 	}
 
@@ -1136,7 +1167,7 @@ public class Parser {
 		switch (m_Token.type()) {
 		case INT:
 		case CHAR:
-		case STRING:
+		case STR:
 		case SHORT:
 		case LONG:
 		case BYTE:
@@ -1220,14 +1251,16 @@ public class Parser {
 			PARSE_method_call();
 			break;
 
-		case RPAREN:
-			// epsilon
-			break;
+//		case RPAREN:
+//			// epsilon
+//			break;
 
 		default:
-			throw new RuntimeException("The current token (" + m_Token
-					+ ") is not in for_right_1's FIRST set. LINE --- "
-					+ m_Scanner.s_LineNumber);
+			// epsilon in default
+			break;
+//			throw new RuntimeException("The current token (" + m_Token
+//					+ ") is not in for_right_1's FIRST set. LINE --- "
+//					+ m_Scanner.s_LineNumber);
 		}
 	}
 
@@ -1322,14 +1355,16 @@ public class Parser {
 			PARSE_expr();
 			break;
 
-		case SEMI:
-			// epsilon
-			break;
+//		case SEMI:
+//			// epsilon
+//			break;
 
 		default:
-			throw new RuntimeException("The current token (" + m_Token
-					+ ") is not in exprs's FIRST set. LINE --- "
-					+ m_Scanner.s_LineNumber);
+			// epsilon in default
+			break;
+//			throw new RuntimeException("The current token (" + m_Token
+//					+ ") is not in exprs's FIRST set. LINE --- "
+//					+ m_Scanner.s_LineNumber);
 		}
 	}
 
@@ -1339,13 +1374,25 @@ public class Parser {
 			// ID expr_1 expr_lr
 			assertToken(TokenType.ID);
 			PARSE_expr_1();
-//			PARSE_expr_lr();
+			PARSE_expr_lr();
+			break;
+
+		case NEW:
+			// NEW ID LPAREN exprs RPAREN dot_method_call_ep expr_lr
+			assertToken(TokenType.NEW);
+			assertToken(TokenType.ID);
+			assertToken(TokenType.LPAREN);
+			PARSE_exprs();
+			assertToken(TokenType.RPAREN);
+			PARSE_dot_method_call_ep();
+			PARSE_expr_lr();
 			break;
 
 		case DPLUS:
 		case DDASH:
 			// pre_rel_assg expr_lr
 			PARSE_pre_rel_assg();
+			PARSE_expr_lr();
 			break;
 
 		case DASH:
@@ -1353,6 +1400,7 @@ public class Parser {
 		case EXMARK:
 			PARSE_unop();
 			PARSE_expr();
+			PARSE_expr_lr();
 			break;
 
 		case LBRACKET:
@@ -1362,25 +1410,82 @@ public class Parser {
 			assertToken(TokenType.DPERIOD);
 			PARSE_expr();
 			assertToken(TokenType.RBRACKET);
+			PARSE_expr_lr();
 			break;
 
 		case LPAREN:
 			// LPAREN expr_lambda expr_lr
 			assertToken(TokenType.LPAREN);
 			PARSE_expr_lambda();
+			PARSE_expr_lr();
 			break;
 
 		case INTCON:
 		case CHARCON:
 		case STRCON:
+		case PERIOD:
 			// const expr_lr
 			PARSE_const();
+			PARSE_expr_lr();
 			break;
 
 		default:
 			throw new RuntimeException("The current token (" + m_Token
 					+ ") is not in expr's FIRST set. LINE --- "
 					+ m_Scanner.s_LineNumber);
+		}
+	}
+
+	private void PARSE_expr_lr() {
+		switch (m_Token.type()) {
+		case PLUS:
+		case DASH:
+		case STAR:
+		case FSLASH:
+		case AMPERSAND:
+		case PIPE:
+		case CARET:
+		case PERCENT:
+			// binop expr expr_lr
+			PARSE_binop();
+			PARSE_expr();
+			PARSE_expr_lr();
+			break;
+
+		case LANGLE:
+		case RANGLE:
+		case LEQ:
+		case GEQ:
+		case DEQ:
+		case NEQ:
+			// relop expr expr_lr
+			PARSE_relop();
+			PARSE_expr();
+			PARSE_expr_lr();
+			break;
+
+		case DAMPERSAND:
+		case DPIPE:
+		case DCARET:
+			// logop expr expr_lr
+			PARSE_logop();
+			PARSE_expr();
+			PARSE_expr_lr();
+			break;
+
+//		case DPERIOD:
+//		case RBRACKET:
+//		case COMMA:
+//		case RPAREN:
+//		case SEMI:
+//			break;
+
+		default:
+			// epsilon in default
+			break;
+//			throw new RuntimeException("The current token (" + m_Token
+//					+ ") is not in expr_lr's FIRST set. LINE --- "
+//					+ m_Scanner.s_LineNumber);
 		}
 	}
 
@@ -1428,17 +1533,19 @@ public class Parser {
 //		case DAMPERSAND:
 //		case DPIPE:
 //		case DCARET:
-		case DPERIOD:
-		case RBRACKET:
-		case COMMA:
-		case RPAREN:
-		case SEMI:
-			break;
+//		case DPERIOD:
+//		case RBRACKET:
+//		case COMMA:
+//		case RPAREN:
+//		case SEMI:
+//			break;
 
 		default:
-			throw new RuntimeException("The current token (" + m_Token
-					+ ") is not in for_middle_2's FIRST set. LINE --- "
-					+ m_Scanner.s_LineNumber);
+			// epsilon in default
+			break;
+//			throw new RuntimeException("The current token (" + m_Token
+//					+ ") is not in expr_1's FIRST set. LINE --- "
+//					+ m_Scanner.s_LineNumber);
 		}
 	}
 
@@ -1493,6 +1600,11 @@ public class Parser {
 			assertToken(TokenType.INTCON);
 			PARSE_deci_ep();
 			break;
+		case PERIOD:
+			// PERIOD INTCON
+			assertToken(TokenType.PERIOD);
+			assertToken(TokenType.INTCON);
+			break;
 		case CHARCON:
 			// CHARCON
 			assertToken(TokenType.CHARCON);
@@ -1516,17 +1628,36 @@ public class Parser {
 			assertToken(TokenType.INTCON);
 			break;
 
-		case DPERIOD:
-		case RBRACKET:
-		case COMMA:
-		case RPAREN:
-		case SEMI:
-			break;
+//		case DPERIOD:
+//		case RBRACKET:
+//		case COMMA:
+//		case RPAREN:
+//		case SEMI:
+//		case PLUS:
+//		case DASH:
+//		case STAR:
+//		case FSLASH:
+//		case AMPERSAND:
+//		case PIPE:
+//		case CARET:
+//		case PERCENT:
+//		case LANGLE:
+//		case RANGLE:
+//		case LEQ:
+//		case GEQ:
+//		case DEQ:
+//		case NEQ:
+//		case DAMPERSAND:
+//		case DPIPE:
+//		case DCARET:
+//			break;
 
 		default:
-			throw new RuntimeException("The current token (" + m_Token
-					+ ") is not in const's FIRST or FOLLOW sets. LINE --- "
-					+ m_Scanner.s_LineNumber);
+			// epsilon in default
+			break;
+//			throw new RuntimeException("The current token (" + m_Token
+//					+ ") is not in deci_ep's FIRST or FOLLOW sets. LINE --- "
+//					+ m_Scanner.s_LineNumber);
 		}
 	}
 
@@ -1783,7 +1914,7 @@ public class Parser {
 		switch (m_Token.type()) {
 		case INT:
 		case CHAR:
-		case STRING:
+		case STR:
 		case SHORT:
 		case LONG:
 		case BYTE:
@@ -1875,8 +2006,9 @@ public class Parser {
 			next();
 			return true;
 		}
-		throw new RuntimeException("The current token (" + m_Token
-				+ ") was expected to be (" + type + ")");
+		throw new RuntimeException("ERROR ON LINE " + m_Scanner.s_LineNumber
+				+ "\nThe current token (" + m_Token + ") was expected to be ("
+				+ type + ")");
 	}
 
 	private Token next() {

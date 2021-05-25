@@ -11,7 +11,7 @@ public class Driver {
 
 	private List<String> m_Flags = new ArrayList<>();
 
-	private String fileName = "NULL";
+	private String fileName = null;
 	private Parser m_Parser;
 
 	public Driver(String[] args) {
@@ -21,7 +21,7 @@ public class Driver {
 
 	private void parseArgs(String[] args) {
 		for (String str : args) {
-			if (fileName.equals("NULL"))
+			if (fileName == null)
 				fileName = str;
 			else
 				m_Flags.add(str.substring(2));
@@ -39,7 +39,12 @@ public class Driver {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		m_Parser.parse(code);
+		try {
+			m_Parser.parse(code);
+		} catch (RuntimeException re) {
+			System.err.println(re.getMessage());
+			re.printStackTrace();
+		}
 	}
 
 	public boolean flag(String flag) {
