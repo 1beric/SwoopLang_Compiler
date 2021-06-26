@@ -7,12 +7,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import core.symtab.SymbolTableOLD;
+
 public class Driver {
 
 	private List<String> m_Flags = new ArrayList<>();
 
 	private String fileName = null;
 	private Parser m_Parser;
+	private SymbolTableOLD m_SymbolTable;
 
 	public Driver(String[] args) {
 		m_Parser = new Parser();

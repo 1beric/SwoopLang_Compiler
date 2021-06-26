@@ -1,6 +1,6 @@
 use standard.data_structures;
 /* This is a comment */
-public class App {
+class test02 : Default {
 
 	private static final str DB_USER = "systems.application";
 	private static final str DB_PASS = "90287309874520";
@@ -8,6 +8,14 @@ public class App {
 	private int loopCount = 0;
 	private double accuracy = 1;
 	protected double fireRate = .5;
+	
+	public test02(str name) {
+		/* ERROR for now */
+		/* loopCount = name.len(); */
+		fireRate = 1 / (accuracy * 10);
+	}
+
+	protected str first(char firstLetter = 'a') return new String(firstLetter);
 
 	public void main() {
 		
@@ -15,13 +23,26 @@ public class App {
 		char char_ = '!', esc = '\'';
 		str stringa = "\"Hello world!";
 		str stringb = new String('a');
+		stringb = first(char_);
 		str stringc = new String(1.2);
 		
-		System.out.println(stringa, char_, -(1233)).pow();
+		
+		test02 obj = new test02("my name!");
+		
+		/* ERROR */
+		/* obj.print(); */
+	
+		obj.first('p');
+
+		/* ERROR for now */
+		/* obj.first('p').print(); */
+		
 		++int1;
+/*		System.out.println(stringa, char_, -(1233)).pow();
 		
 		System.out.println(stringa + char_ + "\"");
-		
+		System.out.println(first(char_));
+*/		
 		if (int1 > 101 && int1< 103 || int1 >= 102) {
 		
 		} else {
@@ -32,11 +53,20 @@ public class App {
 			int1--;
 
 		for (int i = 100; i; i--)
-			System.out.println(i);
+			int1 += i;
+		/* System.out.println(i); */
 				
 		for (char ch : stringa)
-			System.out.println(ch);
+			stringb += ch;
+		/*	System.out.println(ch); */
 			
 		return char_;
 	}
+
+	
+	
+	
+	
+	
+	
 }

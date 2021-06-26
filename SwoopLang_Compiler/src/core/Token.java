@@ -7,7 +7,7 @@ public class Token {
 			"protected", "private", "static", "final", "use", "int", "short",
 			"long", "byte", "bit", "char", "float", "double", "bool", "str",
 			"enum", "extends", "implements", "interface", "true", "false",
-			"new" };
+			"new", "this", "null" };
 
 	private TokenType m_Type;
 	private int m_IntCon = 0;
@@ -101,12 +101,14 @@ public class Token {
 		FLOAT, // := float
 		DOUBLE, // := double
 		BOOL, // := bool
-		TRUE, // := true | (digit* - {0})
-		FALSE, // := false | 0
 		STR, // := string
+		TRUE, // := true
+		FALSE, // := false
 		ENUM, // := enum
 		INTERFACE, // := interface
 		NEW, // := new
+		THIS, // := this
+		NULL, // := null
 		LEQ, // := <=
 		GEQ, // := >=
 		DEQ, // := ==
@@ -121,6 +123,7 @@ public class Token {
 		DASHEQ, // := -=
 		STAR, // := *
 		STAREQ, // := *=
+		DSTAR, // := **
 		FSLASH, // := /
 		FSLASHEQ, // := /=
 		BSLASH, // := \
@@ -132,7 +135,9 @@ public class Token {
 		LBRACKET, // := [
 		RBRACKET, // := ]
 		LANGLE, // := <
+		DLANGLE, // := <<
 		RANGLE, // := >
+		DRANGLE, // := >>
 		LBRACE, // := {
 		RBRACE, // := }
 		UNDERSCORE, // := _

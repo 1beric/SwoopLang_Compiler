@@ -4,7 +4,7 @@ import core.Token.TokenType;
 
 public class Scanner {
 
-	public int s_LineNumber = 1;
+	public static int s_LineNumber = 1;
 
 	private String m_Code = "";
 	private int m_Index = 0;
@@ -83,6 +83,10 @@ public class Scanner {
 				moveIndex(2);
 				return new Token(TokenType.STAREQ);
 			}
+			if (safe(1) && getChar(1) == '*') {
+				moveIndex(2);
+				return new Token(TokenType.DSTAR);
+			}
 			moveIndex(1);
 			return new Token(TokenType.STAR);
 		case '/':
@@ -129,12 +133,20 @@ public class Scanner {
 				moveIndex(2);
 				return new Token(TokenType.LEQ);
 			}
+			if (safe(1) && getChar(1) == '<') {
+				moveIndex(2);
+				return new Token(TokenType.DLANGLE);
+			}
 			moveIndex(1);
 			return new Token(TokenType.LANGLE);
 		case '>':
 			if (safe(1) && getChar(1) == '=') {
 				moveIndex(2);
 				return new Token(TokenType.GEQ);
+			}
+			if (safe(1) && getChar(1) == '>') {
+				moveIndex(2);
+				return new Token(TokenType.DRANGLE);
 			}
 			moveIndex(1);
 			return new Token(TokenType.RANGLE);
